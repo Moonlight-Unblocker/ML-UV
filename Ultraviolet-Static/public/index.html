@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Moonlight Proxy</title>
+    <meta name="googlebot" content="index, follow, snippet" />
+    <link rel="icon" href="moon-light-moon-background.png" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+
+    <div class="header sticky" id="header">
+      <a class="headerbutton" onclick="getLink('/')" title="Home" id="navhome"><!--<span class="material-symbols-outlined" title="Home">
+home
+</span>-->Home</a>
+      <a class="headerbutton" title="Games" onclick="getLink('/#m')" id="navgames"><!--<span class="material-symbols-outlined" title="Games">
+stadia_controller
+</span>-->Games</a>
+      <a class="headerbutton" onclick="getLink('/settings')" id="navsetting"><!--<span class="material-symbols-outlined" title="Games">
+settings
+</span>-->Settings</a>
+      <a class="headerbutton currentselection" onclick="window.location.href = '/'" id="navproxy"><!--<span class="material-symbols-outlined" title="Games">
+hammer
+</span>-->Proxy</a>
+      <a class="headerbutton" onclick="getLink('/partner')" id="navpartner"><!--<span class="material-symbols-outlined" title="Games">
+settings
+</span>-->Partners</a>
+  </div>
+  <div style="width: 3px; height: 8vh;"></div>
+  <h1 class="center">Proxy</h1>
+  <div style="width: 3px; height: 8vh;"></div>
+    <form id="uv-form" class="flex-center">
+      <input
+        id="uv-search-engine"
+        value="https://www.google.com/search?q=%s"
+        type="hidden"
+      />
+      <p class="center"><input id="uv-address" class="searchbar" type="text" placeholder="Search the web" /></p>
+    </form>
+    <div class="desc left-margin">
+      <p id="uv-error"></p>
+      <pre id="uv-error-code"></pre>
+    </div>
+
+    <script>
+      function getLink(link) {
+        window.location.href = "http://"+window.location.hostname.replace("search.", "")+link;
+      }
+    </script>
+  </body>
+</html>
